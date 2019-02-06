@@ -21,6 +21,6 @@ Since there is not currently an update notification process on Dynamo's package 
 If you're interested in contributing to Bang!, just submit a [pull request](https://github.com/sixtysecondrevit/BangForDynamo/pulls).
 
 ## Donate
-The only reason this section is here is because I've been asked about this, so here is an option if you feel so inclined to do so. ðŸ¤— [![](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LWDXXR74LC6U6&currency_code=USD&source=url)
+The only reason this section is here is because I've been asked about this, so here is an option if you feel so inclined to do so. 🤗 [![](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LWDXXR74LC6U6&currency_code=USD&source=url)
 
 ## Thank you!
