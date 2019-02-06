@@ -1,4 +1,4 @@
-![Image](!_graphics/BangLogo.png)
+![Image](https://github.com/johnpierson/BangForDynamo/blob/master/_graphics/BangLogo.png)
 
 
 
