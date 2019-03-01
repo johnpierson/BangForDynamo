@@ -95,5 +95,62 @@ namespace BangUI
         }
 
     }
+    [NodeName("All Warnings of Type")]
+    [NodeCategory("Bang.Revit.Selection.Selection")]
+    [NodeDescription("This provides access to all warnings in your current Revit file. This version returns a list of all of the instances of that warning type.")]
+    [IsDesignScriptCompatible]
+    public class WarningsOfType : RevitDropDownBase
+    {
 
+
+        private const string outputName = "Warning";
+
+        public WarningsOfType() : base(outputName) { }
+
+        [JsonConstructor]
+        public WarningsOfType(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(outputName, inPorts, outPorts) { }
+
+        protected override SelectionState PopulateItemsCore(string currentSelection)
+        {
+            Items.Clear();
+
+            Document doc = DocumentManager.Instance.CurrentDBDocument;
+
+            List<FailureMessage> elements = doc.GetWarnings().GroupBy(warning => warning.GetFailureDefinitionId().Guid.ToString()).Select(groupedWarning => groupedWarning.First()).ToList();
+
+
+            if (!elements.Any())
+            {
+                Items.Add(new DynamoDropDownItem("No warnings in this model.", null));
+                SelectedIndex = 0;
+                return SelectionState.Done;
+            }
+
+            Items = elements.Select(x => new DynamoDropDownItem(x.GetDescriptionText().PadRight(45, '.').Substring(0, 45) + ".....", x)).ToObservableCollection();
+            return SelectionState.Restore;
+        }
+
+        public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
+        {
+            if (Items.Count == 0 ||
+                Items[0].Name == "No warnings in this model." ||
+                SelectedIndex == -1)
+            {
+                return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()) };
+            }
+
+            var args = new List<AssociativeNode>
+            {
+                AstFactory.BuildStringNode(((FailureMessage) Items[SelectedIndex].Item).GetDescriptionText())
+            };
+            var functionCall = AstFactory.BuildFunctionCall("Bang.Warning",
+                                                            "ByDescription",
+                                                            args);
+
+            return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), functionCall) };
+        }
+
+
+
+    }
 }

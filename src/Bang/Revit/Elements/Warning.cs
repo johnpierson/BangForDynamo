@@ -72,5 +72,17 @@ namespace Bang.Revit.Elements
            
             return doc.GetWarnings().First(w => (w.GetFailureDefinitionId().Guid.ToString()+w.GetFailingElements().First()).Equals(id));
         }
+        /// <summary>
+        /// Create Performance Adviser Rule by Id
+        /// </summary>
+        /// <param name="description"></param>
+        /// <returns></returns>
+        [IsVisibleInDynamoLibrary(false)]
+        public static List<FailureMessage> ByDescription(string description)
+        {
+            Document doc = DocumentManager.Instance.CurrentDBDocument;
+
+            return doc.GetWarnings().Where(w => w.GetDescriptionText().Equals(description)).ToList();
+        }
     }
 }
