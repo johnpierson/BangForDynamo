@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest future improvements for Rhythm
+about: Suggest future improvements for Bang!
 
 ---
 
