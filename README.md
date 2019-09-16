@@ -1,6 +1,6 @@
 ![Image](https://github.com/johnpierson/BangForDynamo/blob/master/_graphics/BangLogo.png)
 
-
+<a href="https://www.buymeacoffee.com/j0hnp" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 Bang is a collection of custom nodes for the [Dynamo](http://www.dynamobim.org) visual programming environment. This package aims to add warning parsing functionality to Dynamo utilizing the Warnings API introduced in Revit 2018. 
 
@@ -19,8 +19,5 @@ Since there is not currently an update notification process on Dynamo's package 
 
 ## Help improve Bang!
 If you're interested in contributing to Bang!, just submit a [pull request](https://github.com/johnpierson/BangForDynamo/pulls).
-
-## Donate
-The only reason this section is here is because I've been asked about this, so here is an option if you feel so inclined to do so. 🤗 [![](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LWDXXR74LC6U6&currency_code=USD&source=url)
 
 ## Thank you!
