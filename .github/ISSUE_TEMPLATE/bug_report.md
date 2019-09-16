@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report bugs here to help improve Rhythm
+about: Report bugs here to help improve Bang!
 
 ---
 
@@ -16,7 +16,7 @@ about: Report bugs here to help improve Rhythm
 **My setup**
 - Operating System: ................
 - Dynamo version: ................
-- Rhythm version: ................
+- Bang! version: ................
 - Revit version: ................
 
 ---
