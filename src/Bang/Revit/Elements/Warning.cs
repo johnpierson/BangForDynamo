@@ -4,6 +4,7 @@ using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Revit.Elements;
 using RevitServices.Persistence;
+using CurveElement = Autodesk.Revit.DB.CurveElement;
 using FailureMessage = Autodesk.Revit.DB.FailureMessage;
 
 namespace Bang.Revit.Elements
@@ -46,11 +47,17 @@ namespace Bang.Revit.Elements
             Document doc = DocumentManager.Instance.CurrentDBDocument;
             List<global::Revit.Elements.Element> failingElements = warning.GetFailingElements().Select(x => doc.GetElement(x).ToDSType(true)).ToList();
 
+            //unfortunately this is not cross language compatible that I know of. :(
             if (warning.GetDescriptionText().Contains("slightly off axis") && failingElements.Count.Equals(1))
             {
                 //we land here because for some reason Revit 2019 occasionally has issues retrieving the host too
                 var modelLine = failingElements.First(e => e.InternalElement is ModelLine).InternalElement as ModelLine;
-                failingElements.AddRange(modelLine.SketchPlane.GetDependentElements(SketchFilter()).Select(f => doc.GetElement(f).ToDSType(true)).ToList());
+
+                var intersecting = new FilteredElementCollector(doc).WherePasses(SketchFilter()).ToList();
+
+                var host = intersecting.First(e => e.GetDependentElements(new ElementClassFilter(typeof(CurveElement))).Contains(modelLine.Id));
+
+                failingElements.Add(host.ToDSType(true));
             }
 
             return failingElements.Distinct().ToList();
