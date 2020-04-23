@@ -53,7 +53,7 @@ namespace Bang.Revit.Elements
                 //we land here because for some reason Revit 2019 occasionally has issues retrieving the host too
                 var modelLine = failingElements.First(e => e.InternalElement is ModelLine).InternalElement as ModelLine;
 
-                var intersecting = new FilteredElementCollector(doc).WherePasses(SketchFilter()).ToList();
+                var intersecting = new FilteredElementCollector(doc).WhereElementIsNotElementType().WherePasses(SketchFilter()).ToList();
 
                 var host = intersecting.First(e => e.GetDependentElements(new ElementClassFilter(typeof(CurveElement))).Contains(modelLine.Id));
 
