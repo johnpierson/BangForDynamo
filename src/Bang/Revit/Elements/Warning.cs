@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
 using Revit.Elements;
@@ -48,18 +45,33 @@ namespace Bang.Revit.Elements
         {
             Document doc = DocumentManager.Instance.CurrentDBDocument;
             List<global::Revit.Elements.Element> failingElements = warning.GetFailingElements().Select(x => doc.GetElement(x).ToDSType(true)).ToList();
-            return failingElements;
+
+            if (warning.GetDescriptionText().Contains("slightly off axis") && failingElements.Count.Equals(1))
+            {
+                //we land here because for some reason Revit 2019 occasionally has issues retrieving the host too
+                var modelLine = failingElements.First(e => e.InternalElement is ModelLine).InternalElement as ModelLine;
+                failingElements.AddRange(modelLine.SketchPlane.GetDependentElements(SketchFilter()).Select(f => doc.GetElement(f).ToDSType(true)).ToList());
+            }
+
+            return failingElements.Distinct().ToList();
         }
-        ///// <summary>
-        ///// Retrieves the resolution caption if the warning has one.
-        ///// </summary>
-        ///// <param name="warning">The warning to get the failing elements for.</param>
-        ///// <returns name="resolutionCaption">The default resolution caption for this warning.</returns>
-        //public static string DefaultResolutionDescription(FailureMessage warning)
-        //{
-        //    Document doc = DocumentManager.Instance.CurrentDBDocument;
-        //    return warning.GetDefaultResolutionCaption();
-        //}
+        //this is to get sketch elements
+        [IsVisibleInDynamoLibrary(false)]
+        private static ElementMulticategoryFilter SketchFilter()
+        {
+            List<BuiltInCategory> sketchCategories = new List<BuiltInCategory>
+            {
+                BuiltInCategory.OST_Walls,
+                BuiltInCategory.OST_Floors,
+                BuiltInCategory.OST_FilledRegion,
+                BuiltInCategory.OST_MaskingRegion,
+                BuiltInCategory.OST_Ceilings,
+                BuiltInCategory.OST_Roofs
+            };
+
+            return new ElementMulticategoryFilter(sketchCategories);
+        }
+
         /// <summary>
         /// Create Performance Adviser Rule by Id
         /// </summary>
