@@ -52,13 +52,12 @@ namespace Bang.Revit.Elements
             {
                 //we land here because for some reason Revit 2019 occasionally has issues retrieving the host too
                 var modelLine = failingElements.First(e => e.InternalElement is ModelLine).InternalElement as ModelLine;
-
                 var intersecting = new FilteredElementCollector(doc).WhereElementIsNotElementType().WherePasses(SketchFilter()).ToList();
-
                 var host = intersecting.First(e => e.GetDependentElements(new ElementClassFilter(typeof(CurveElement))).Contains(modelLine.Id));
-
                 failingElements.Add(host.ToDSType(true));
             }
+            // grab the additional elements as well.
+            failingElements.AddRange(warning.GetAdditionalElements().Select(x => doc.GetElement(x).ToDSType(true)));
 
             return failingElements.Distinct().ToList();
         }

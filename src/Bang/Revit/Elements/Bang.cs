@@ -1,5 +1,6 @@
 ﻿using Autodesk.DesignScript.Runtime;
 using System.Collections.Generic;
+using System.Linq;
 using Autodesk.Revit.DB;
 using RevitServices.Persistence;
 using Revit.Elements;
@@ -34,16 +35,15 @@ namespace Bang.Revit.Elements
             List<string> messagesList = new List<string>();
             List<List<global::Revit.Elements.Element>> failingElementsList = new List<List<global::Revit.Elements.Element>>();
 
-            foreach (var message in warningList)
+            foreach (var warning in warningList)
             {
-                messagesList.Add(message.GetDescriptionText());
-                var failingElementIds = new List<ElementId>(message.GetFailingElements());
-                List<Element> failingElements = new List<Element>();
-                foreach (var id in failingElementIds)
-                {
-                    failingElements.Add(doc.GetElement(id).ToDSType(true));
-                }
-                failingElementsList.Add(failingElements);
+                messagesList.Add(warning.GetDescriptionText());
+                //add failing elements
+                List<global::Revit.Elements.Element> failingElements = warning.GetFailingElements().Select(x => doc.GetElement(x).ToDSType(true)).ToList();
+                //add additional elements
+                failingElements.AddRange(warning.GetAdditionalElements().Select(x => doc.GetElement(x).ToDSType(true)));
+
+                failingElementsList.Add(failingElements.Distinct().ToList());
             }
 
             //returns the outputs
