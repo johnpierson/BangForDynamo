@@ -1,10 +1,9 @@
 ![Image](https://github.com/johnpierson/BangForDynamo/blob/master/_graphics/BangLogo.png)
 [![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/Naereen/StrapDown.js)
-[![HitCount](http://hits.dwyl.io/Naereen/badges.svg)](http://hits.dwyl.io/Naereen/badges)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Naereen/badges.svg)](http://isitmaintained.com/project/Naereen/badges "Average time to resolve an issue")
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues?q=is%3Aissue+is%3Aclosed)
+[![HitCount](http://hits.dwyl.io/Naereen/badges.svg)](http://hits.dwyl.io/johnpierson/BangForDynamo)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://GitHub.com/johnpierson/BangForDynamo//blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/johnpierson/BangForDynamo/issues/)
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/Naereen/StrapDown.js.svg)](https://GitHub.com/johnpierson/BangForDynamo/issues?q=is%3Aissue+is%3Aclosed)
 
 <a href="https://www.buymeacoffee.com/j0hnp" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
