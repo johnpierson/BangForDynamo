@@ -1,4 +1,13 @@
 ![Image](https://github.com/johnpierson/BangForDynamo/blob/master/_graphics/BangLogo.png)
+
+<h3 align="center">A collection of custom nodes for <a href="http://dynamobim.org/" target="_blank">Dynamo</a>.</h4>
+
+<p align="center">
+   <img src="https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg">
+</p>
+
+---
+
 [![GitHub license](https://img.shields.io/github/license/johnpierson/BangForDynamo.svg)](https://GitHub.com/johnpierson/BangForDynamo/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/johnpierson/BangForDynamo.svg)](https://GitHub.com/johnpierson/BangForDynamo/issues/)
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/johnpierson/BangForDynamo.svg)](https://GitHub.com/johnpierson/BangForDynamo/issues?q=is%3Aissue+is%3Aclosed)
