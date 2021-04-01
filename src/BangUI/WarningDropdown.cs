@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Autodesk.Revit.DB;
 using CoreNodeModels;
@@ -11,9 +13,6 @@ using Newtonsoft.Json;
 
 
 namespace BangUI
-
-
-
 {
     [NodeName("Warnings")]
     [NodeCategory("Bang.Revit.Selection.Selection")]
@@ -21,6 +20,38 @@ namespace BangUI
     [IsDesignScriptCompatible]
     public class Warnings : RevitDropDownBase
     {
+        private List<FailureMessage> RetrieveWarnings(Document doc)
+        {
+            var extraPath = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("bin\\BangUI.dll", "extra");
+            var disallowedPath = Path.Combine(extraPath, "disallowedWarnings.txt");
+            if (File.Exists(disallowedPath))
+            {
+                try
+                {
+                    var disallowedWarnings = File.ReadAllText(disallowedPath).ToLower().Replace(" ","").Split(',');
+
+                    List<FailureMessage> allowedFailures = new List<FailureMessage>();
+
+                    foreach (var failureMessage in doc.GetWarnings())
+                    {
+                        string description = System.Text.RegularExpressions.Regex.Replace(failureMessage.GetDescriptionText().ToLower(), @"[^0-9a-zA-Z]+", "");
+
+                        if (!disallowedWarnings.Any(dw => description.Contains(dw) && dw.Length > 2))
+                        {
+                            allowedFailures.Add(failureMessage);
+                        }
+                    }
+
+                    return allowedFailures;
+                }
+                catch (Exception)
+                {
+                    //suppress
+                }
+            }
+
+            return doc.GetWarnings().ToList();
+        }
         public class SpecificWarning
         {
             public FailureMessage failureMessage { get; set; }
@@ -37,11 +68,10 @@ namespace BangUI
         protected override SelectionState PopulateItemsCore(string currentSelection)
         {
             Items.Clear();
-
+            //the current document
             Document doc = DocumentManager.Instance.CurrentDBDocument;
 
-            List<FailureMessage> elements = doc.GetWarnings().ToList();
-
+            List<FailureMessage> elements = RetrieveWarnings(doc);
 
             if (!elements.Any())
             {
@@ -93,8 +123,9 @@ namespace BangUI
         {
             return doc.GetWarnings().Select(x => x.GetFailureDefinitionId().Guid.ToString()).ToList();
         }
-
     }
+
+
     [NodeName("All Warnings of Type")]
     [NodeCategory("Bang.Revit.Selection.Selection")]
     [NodeDescription("This provides access to all warnings in your current Revit file. This version returns a list of all of the instances of that warning type.")]
@@ -117,7 +148,6 @@ namespace BangUI
             Document doc = DocumentManager.Instance.CurrentDBDocument;
 
             List<FailureMessage> elements = doc.GetWarnings().GroupBy(warning => warning.GetFailureDefinitionId().Guid.ToString()).Select(groupedWarning => groupedWarning.First()).ToList();
-
 
             if (!elements.Any())
             {
