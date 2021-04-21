@@ -22,34 +22,6 @@ namespace BangUI
     {
         private List<FailureMessage> RetrieveWarnings(Document doc)
         {
-            var extraPath = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("bin\\BangUI.dll", "extra");
-            var disallowedPath = Path.Combine(extraPath, "disallowedWarnings.txt");
-            if (File.Exists(disallowedPath))
-            {
-                try
-                {
-                    var disallowedWarnings = File.ReadAllText(disallowedPath).ToLower().Replace(" ","").Split(',');
-
-                    List<FailureMessage> allowedFailures = new List<FailureMessage>();
-
-                    foreach (var failureMessage in doc.GetWarnings())
-                    {
-                        string description = System.Text.RegularExpressions.Regex.Replace(failureMessage.GetDescriptionText().ToLower(), @"[^0-9a-zA-Z]+", "");
-
-                        if (!disallowedWarnings.Any(dw => description.Contains(dw) && dw.Length > 2))
-                        {
-                            allowedFailures.Add(failureMessage);
-                        }
-                    }
-
-                    return allowedFailures;
-                }
-                catch (Exception)
-                {
-                    //suppress
-                }
-            }
-
             return doc.GetWarnings().ToList();
         }
         public class SpecificWarning
