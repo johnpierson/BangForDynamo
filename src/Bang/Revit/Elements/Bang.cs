@@ -1,4 +1,5 @@
-﻿using Autodesk.DesignScript.Runtime;
+﻿using System;
+using Autodesk.DesignScript.Runtime;
 using System.Collections.Generic;
 using System.Linq;
 using Autodesk.Revit.DB;
@@ -26,6 +27,7 @@ namespace Bang.Revit.Elements
         /// warnings
         /// </search>
         [MultiReturn(new[] { "Warning Text","Failing Elements" })]
+        [Obsolete("Revit 2022 is the last version of Revit that Bang will support. Please migrate your projects to use the new OOTB nodes.")]
         public static Dictionary<string, object> GetWarnings(bool toggle)
         {
             Document doc = DocumentManager.Instance.CurrentDBDocument;

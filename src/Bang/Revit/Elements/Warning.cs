@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Autodesk.DesignScript.Runtime;
 using Autodesk.Revit.DB;
@@ -23,6 +24,8 @@ namespace Bang.Revit.Elements
         /// </summary>
         /// <param name="warning">The warning to get the description of.</param>
         /// <returns name="description">The description.</returns>
+        [Obsolete("Revit 2022 is the last version of Revit that Bang will support. Please migrate your projects to use the new OOTB nodes.")]
+
         public static string Description(FailureMessage warning)
         { 
             return warning.GetDescriptionText();
@@ -32,6 +35,8 @@ namespace Bang.Revit.Elements
         /// </summary>
         /// <param name="warning">The warning to get the severity of.</param>
         /// <returns name="severity">How bad is it doc? </returns>
+        [Obsolete("Revit 2022 is the last version of Revit that Bang will support. Please migrate your projects to use the new OOTB nodes.")]
+
         public static string Severity(FailureMessage warning)
         {
             return warning.GetSeverity().ToString();
@@ -42,6 +47,8 @@ namespace Bang.Revit.Elements
         /// </summary>
         /// <param name="warning">The warning to get the failing elements for.</param>
         /// <returns name="failingElements">All of the failing elements for that specific warning.</returns>
+        [Obsolete("Revit 2022 is the last version of Revit that Bang will support. Please migrate your projects to use the new OOTB nodes.")]
+
         public static List<global::Revit.Elements.Element> FailingElements(FailureMessage warning)
         {
             Document doc = DocumentManager.Instance.CurrentDBDocument;

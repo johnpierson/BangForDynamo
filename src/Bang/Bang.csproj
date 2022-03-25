@@ -182,17 +182,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I
+    <PostBuildEvent>if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I)
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I)
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I)
 
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I)
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I)
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I)
 
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I
-if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I</PostBuildEvent>
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I)
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I)
+if $(ConfigurationName) == Release if exist "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!" (xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I)</PostBuildEvent>
   </PropertyGroup>
   <Target Name="BeforeBuild">
   </Target>

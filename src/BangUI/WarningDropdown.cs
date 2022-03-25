@@ -10,6 +10,8 @@ using RevitServices.Persistence;
 using DSRevitNodesUI;
 using Dynamo.Utilities;
 using Newtonsoft.Json;
+using Revit.Application;
+using Revit.Elements;
 
 
 namespace BangUI
@@ -18,15 +20,16 @@ namespace BangUI
     [NodeCategory("Bang.Revit.Selection.Selection")]
     [NodeDescription("This provides access to all warnings in your current Revit file. The display is the partial description and the first failing element id. (This is for tracking)")]
     [IsDesignScriptCompatible]
+    [Obsolete("Revit 2022 is the last version of Revit that Bang will support. Please migrate your projects to use the new OOTB nodes.")]
     public class Warnings : RevitDropDownBase
     {
-        private List<FailureMessage> RetrieveWarnings(Document doc)
+        private List<Autodesk.Revit.DB.FailureMessage> RetrieveWarnings(Autodesk.Revit.DB.Document doc)
         {
             return doc.GetWarnings().ToList();
         }
         public class SpecificWarning
         {
-            public FailureMessage failureMessage { get; set; }
+            public Autodesk.Revit.DB.FailureMessage failureMessage { get; set; }
             public ElementId firstFailingElement { get; set; }
         }
 
@@ -41,9 +44,9 @@ namespace BangUI
         {
             Items.Clear();
             //the current document
-            Document doc = DocumentManager.Instance.CurrentDBDocument;
+            Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 
-            List<FailureMessage> elements = RetrieveWarnings(doc);
+            List<Autodesk.Revit.DB.FailureMessage> elements = RetrieveWarnings(doc);
 
             if (!elements.Any())
             {
@@ -80,9 +83,9 @@ namespace BangUI
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static FailureMessage ById(string id)
+        public static Autodesk.Revit.DB.FailureMessage ById(string id)
         {
-            Document doc = DocumentManager.Instance.CurrentDBDocument;
+            Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 
             return doc.GetWarnings().First(w => (w.GetFailureDefinitionId().Guid.ToString() + w.GetFailingElements().First()).Equals(id));
         }
@@ -91,7 +94,7 @@ namespace BangUI
         /// </summary>
         /// <param name="doc"></param>
         /// <returns></returns>
-        public static List<string> AllFailureDefinitionIds(Document doc)
+        public static List<string> AllFailureDefinitionIds(Autodesk.Revit.DB.Document doc)
         {
             return doc.GetWarnings().Select(x => x.GetFailureDefinitionId().Guid.ToString()).ToList();
         }
@@ -102,6 +105,7 @@ namespace BangUI
     [NodeCategory("Bang.Revit.Selection.Selection")]
     [NodeDescription("This provides access to all warnings in your current Revit file. This version returns a list of all of the instances of that warning type.")]
     [IsDesignScriptCompatible]
+    [Obsolete("Revit 2022 is the last version of Revit that Bang will support. Please migrate your projects to use the new OOTB nodes.")]
     public class WarningsOfType : RevitDropDownBase
     {
 
@@ -117,9 +121,9 @@ namespace BangUI
         {
             Items.Clear();
 
-            Document doc = DocumentManager.Instance.CurrentDBDocument;
+            Autodesk.Revit.DB.Document doc = DocumentManager.Instance.CurrentDBDocument;
 
-            List<FailureMessage> elements = doc.GetWarnings().GroupBy(warning => warning.GetFailureDefinitionId().Guid.ToString()).Select(groupedWarning => groupedWarning.First()).ToList();
+            List<Autodesk.Revit.DB.FailureMessage> elements = doc.GetWarnings().GroupBy(warning => warning.GetFailureDefinitionId().Guid.ToString()).Select(groupedWarning => groupedWarning.First()).ToList();
 
             if (!elements.Any())
             {
@@ -143,7 +147,7 @@ namespace BangUI
 
             var args = new List<AssociativeNode>
             {
-                AstFactory.BuildStringNode(((FailureMessage) Items[SelectedIndex].Item).GetDescriptionText())
+                AstFactory.BuildStringNode(((Autodesk.Revit.DB.FailureMessage) Items[SelectedIndex].Item).GetDescriptionText())
             };
             var functionCall = AstFactory.BuildFunctionCall("Bang.Warning",
                                                             "ByDescription",
