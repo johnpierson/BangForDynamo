@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bang</RootNamespace>
     <AssemblyName>Bang</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
+    <DocumentationFile>bin\Release\Bang.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Revit\Elements\Bang.cs" />
@@ -42,52 +43,57 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CoreNodeModels, Version=2.0.2.6986, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DynamoVisualProgramming.WpfUILibrary.2.0.2.6986\lib\net45\CoreNodeModels.dll</HintPath>
+    <Reference Include="AdWindows, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2021.1.4\lib\net48\AdWindows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="CoreNodeModelsWpf, Version=2.0.2.6986, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DynamoVisualProgramming.WpfUILibrary.2.0.2.6986\lib\net45\CoreNodeModelsWpf.dll</HintPath>
+    <Reference Include="CoreNodeModels, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.2.3.0.5885\lib\net47\CoreNodeModels.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DesignScriptBuiltin, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DesignScriptBuiltin.dll</HintPath>
+    <Reference Include="CoreNodeModelsWpf, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.2.3.0.5885\lib\net47\CoreNodeModelsWpf.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DSIronPython, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DSIronPython.dll</HintPath>
+    <Reference Include="DesignScriptBuiltin, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DesignScriptBuiltin.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoApplications, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DynamoApplications.dll</HintPath>
+    <Reference Include="DSIronPython, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DSIronPython.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoCore, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DynamoCore.dll</HintPath>
+    <Reference Include="DynamoApplications, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DynamoApplications.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoCoreWpf, Version=2.0.2.6986, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DynamoVisualProgramming.WpfUILibrary.2.0.2.6986\lib\net45\DynamoCoreWpf.dll</HintPath>
+    <Reference Include="DynamoCore, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DynamoCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoInstallDetective, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DynamoInstallDetective.dll</HintPath>
+    <Reference Include="DynamoCoreWpf, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.2.3.0.5885\lib\net47\DynamoCoreWpf.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoServices, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.5.0.7432\lib\net47\DynamoServices.dll</HintPath>
+    <Reference Include="DynamoInstallDetective, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DynamoInstallDetective.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoShapeManager, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DynamoShapeManager.dll</HintPath>
+    <Reference Include="DynamoServices, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.3.0.5885\lib\net47\DynamoServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoUnits, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.5.0.7432\lib\net47\DynamoUnits.dll</HintPath>
+    <Reference Include="DynamoShapeManager, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DynamoShapeManager.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DynamoUtilities, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\DynamoUtilities.dll</HintPath>
+    <Reference Include="DynamoUnits, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.3.0.5885\lib\net47\DynamoUnits.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DynamoUtilities, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\DynamoUtilities.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -116,28 +122,30 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="ProtoCore, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\ProtoCore.dll</HintPath>
+    <Reference Include="ProtoCore, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\ProtoCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ProtoGeometry, Version=2.5.0.5835, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.5.0.7432\lib\net47\ProtoGeometry.dll</HintPath>
+    <Reference Include="ProtoGeometry, Version=2.3.0.5132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.3.0.5885\lib\net47\ProtoGeometry.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2019\RevitAPI.dll</HintPath>
+    <Reference Include="RevitAPI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2021.1.4\lib\net48\RevitAPI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2019\RevitAPIUI.dll</HintPath>
+    <Reference Include="RevitAPIUI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2021.1.4\lib\net48\RevitAPIUI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitNodes">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2019\RevitNodes.dll</HintPath>
+    <Reference Include="RevitNodes, Version=2.3.0.7661, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Revit.2.3.0.7661\lib\RevitNodes.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="RevitServices">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Dynamo\Dynamo Revit\2\Revit_2019\RevitServices.dll</HintPath>
+    <Reference Include="RevitServices, Version=2.3.0.7661, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Revit.2.3.0.7661\lib\RevitServices.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing" />
@@ -146,8 +154,13 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xaml" />
-    <Reference Include="VMDataBridge, Version=2.5.0.7432, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.5.0.7432\lib\net47\VMDataBridge.dll</HintPath>
+    <Reference Include="UIFramework, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Revit_All_Main_Versions_API_x64.2021.1.4\lib\net48\UIFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VMDataBridge, Version=2.3.0.5885, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.3.0.5885\lib\net47\VMDataBridge.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
@@ -169,8 +182,17 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.3\packages\Bang!\bin" /Y /I
+
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.6\packages\Bang!\bin" /Y /I
+
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.xml" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.dll" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I
+if $(ConfigurationName) == Release xcopy "$(ProjectDir)bin\Release\Bang.customization.dll" "$(AppData)\Dynamo\Dynamo Revit\2.10\packages\Bang!\bin" /Y /I</PostBuildEvent>
   </PropertyGroup>
   <Target Name="BeforeBuild">
   </Target>
