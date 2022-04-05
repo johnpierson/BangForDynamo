@@ -1,0 +1,332 @@
+{
+  "Uuid": "adaf6bc6-99e0-41e1-a259-779b02395b0c",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BangSample",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Bang.Revit.Elements.Warning.Description@var",
+      "Id": "82497f630a4e4276af2f7e304e3dd34f",
+      "Inputs": [
+        {
+          "Id": "2958171044ae4ef4b8d91a6a1a0bdb26",
+          "Name": "warning",
+          "Description": "The warning to get the description of.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e5979fd2c489476fab82a0181086c3f5",
+          "Name": "description",
+          "Description": "The description.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Provides the full description of the warning.\n\nWarning.Description (warning: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Bang.Revit.Elements.Warning.FailingElements@var",
+      "Id": "8435177767ee47feb28bd2953dc6600c",
+      "Inputs": [
+        {
+          "Id": "080105d8bd504b3ab8594530430e0e51",
+          "Name": "warning",
+          "Description": "The warning to get the failing elements for.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "413649699993493db258251baf3bef8d",
+          "Name": "failingElements",
+          "Description": "All of the failing elements for that specific warning.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the elements that are failing for that warning instance.\n\nWarning.FailingElements (warning: var): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Bang.Revit.Elements.Warning.Severity@var",
+      "Id": "cb69d14a32f342a99e893f5f391c3b09",
+      "Inputs": [
+        {
+          "Id": "cfb843fbfc604f7692e28a02003d0fc3",
+          "Name": "warning",
+          "Description": "The warning to get the severity of.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dd6e02d73b1e4a0eba443ccdbec4033a",
+          "Name": "severity",
+          "Description": "How bad is it doc?",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Possibles severity messages include, Warning, Error and Document Corruption.\n\nWarning.Severity (warning: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Bang.Revit.Elements.WarningTools.GetWarnings@bool",
+      "Id": "c35875e1852343db8eb29ca35f6e79e4",
+      "Inputs": [
+        {
+          "Id": "bf01d58e6e87452a96fac7712ea10add",
+          "Name": "toggle",
+          "Description": "Toggle to reset the collection.\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "14a2fcb3abf24f0bb5195ea489d9ceb1",
+          "Name": "Warning Text",
+          "Description": "The description of the warning.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7faba683187e489c80cd5cbeeb4b7e27",
+          "Name": "Failing Elements",
+          "Description": "The elements that are failing.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node will get the warnings for the current document. Revit 2018 and up only!\n\nWarningTools.GetWarnings (toggle: bool): var[]..[]"
+    },
+    {
+      "ConcreteType": "BangUI.Warnings, BangUI",
+      "SelectedIndex": 1,
+      "SelectedString": "Highlighted elements are joined but...(154427)",
+      "NodeType": "ExtensionNode",
+      "Id": "bbd680e942454041bb83ae8982bf9a6b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a168b7e23f0a4876823dc1d5d6948fc0",
+          "Name": "Warning",
+          "Description": "The selected Warning",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "This provides access to all warnings in your current Revit file. The display is the partial description and the first failing element id. (This is for tracking)"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "8be21c914221474babe2a23af4a55a49",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "de15992e81e2423888c4313bf1d3eb8e",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a168b7e23f0a4876823dc1d5d6948fc0",
+      "End": "2958171044ae4ef4b8d91a6a1a0bdb26",
+      "Id": "2324ab5b04ee4939930ded6fb15ccad0"
+    },
+    {
+      "Start": "a168b7e23f0a4876823dc1d5d6948fc0",
+      "End": "080105d8bd504b3ab8594530430e0e51",
+      "Id": "76f3acc5e942400793c9817fc01cfa91"
+    },
+    {
+      "Start": "a168b7e23f0a4876823dc1d5d6948fc0",
+      "End": "cfb843fbfc604f7692e28a02003d0fc3",
+      "Id": "1b55ce8f8c774117bdeaed467e1f07ee"
+    },
+    {
+      "Start": "de15992e81e2423888c4313bf1d3eb8e",
+      "End": "bf01d58e6e87452a96fac7712ea10add",
+      "Id": "c1b3b775753f4ef0b5ea4426000f3511"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Bang!",
+      "Version": "2021.4.3",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "82497f630a4e4276af2f7e304e3dd34f",
+        "8435177767ee47feb28bd2953dc6600c",
+        "cb69d14a32f342a99e893f5f391c3b09",
+        "c35875e1852343db8eb29ca35f6e79e4",
+        "bbd680e942454041bb83ae8982bf9a6b"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.12",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "1.10",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Warning.Description",
+        "Id": "82497f630a4e4276af2f7e304e3dd34f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 709.60000000000014,
+        "Y": 299.19999999999993
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Warning.FailingElements",
+        "Id": "8435177767ee47feb28bd2953dc6600c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 709.60000000000014,
+        "Y": 394.4
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Warning.Severity",
+        "Id": "cb69d14a32f342a99e893f5f391c3b09",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 709.60000000000014,
+        "Y": 498.4
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "WarningTools.GetWarnings",
+        "Id": "c35875e1852343db8eb29ca35f6e79e4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 707.2,
+        "Y": 172.79999999999993
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Warnings",
+        "Id": "bbd680e942454041bb83ae8982bf9a6b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 187.99999999999977,
+        "Y": 364.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "8be21c914221474babe2a23af4a55a49",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 344.0,
+        "Y": 203.20000000000007
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}
